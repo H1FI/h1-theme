@@ -1,10 +1,10 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying Archive pages.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package H1 Theme
  */
 
 get_header(); ?>
@@ -24,46 +24,34 @@ get_header(); ?>
 							single_tag_title();
 
 						elseif ( is_author() ) :
-							printf( __( 'Author: %s', '_s' ), '<span class="vcard">' . get_the_author() . '</span>' );
+							printf( __( 'Author: %s', 'h1-theme' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 						elseif ( is_day() ) :
-							printf( __( 'Day: %s', '_s' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'h1-theme' ), '<span>' . get_the_date() . '</span>' );
 
 						elseif ( is_month() ) :
-							printf( __( 'Month: %s', '_s' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', '_s' ) ) . '</span>' );
+							printf( __( 'Month: %s', 'h1-theme' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 
 						elseif ( is_year() ) :
-							printf( __( 'Year: %s', '_s' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', '_s' ) ) . '</span>' );
+							printf( __( 'Year: %s', 'h1-theme' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', '_s' );
-
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', '_s' );
+							_e( 'Asides', 'h1-theme' );
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', '_s' );
+							_e( 'Images', 'h1-theme');
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', '_s' );
+							_e( 'Videos', 'h1-theme' );
 
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', '_s' );
+							_e( 'Quotes', 'h1-theme' );
 
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', '_s' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', '_s' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', '_s' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', '_s' );
+							_e( 'Links', 'h1-theme' );
 
 						else :
-							_e( 'Archives', '_s' );
+							_e( 'Archives', 'h1-theme' );
 
 						endif;
 					?>
@@ -85,16 +73,16 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'parts/entry', get_post_type() );
 				?>
 
 			<?php endwhile; ?>
 
-			<?php _s_paging_nav(); ?>
+			<?php h1_paging_nav(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+			<?php get_template_part( 'parts/entry', 'none' ); ?>
 
 		<?php endif; ?>
 

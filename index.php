@@ -8,13 +8,12 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package H1 Theme
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php get_template_part( 'parts/contentheader', 'index' ); ?>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -26,21 +25,20 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'parts/entry', get_post_type() );
 				?>
 
 			<?php endwhile; ?>
 
-			<?php _s_paging_nav(); ?>
+			<?php h1_paging_nav(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+			<?php get_template_part( 'parts/entry', 'none' ); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<?php get_template_part( 'parts/contentfooter', 'index' ); ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

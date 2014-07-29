@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying all single posts.
+ * The Template for displaying all single posts.
  *
- * @package _s
+ * @package H1 Theme
  */
 
 get_header(); ?>
@@ -12,9 +12,9 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+			<?php get_template_part( 'parts/entry', 'single' ); ?>
 
-			<?php _s_post_nav(); ?>
+			<?php h1_post_nav(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template

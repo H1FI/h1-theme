@@ -1,8 +1,8 @@
 <?php
 /**
- * _s functions and definitions
+ * H1 Theme functions and definitions
  *
- * @package _s
+ * @package H1 Theme
  */
 
 /**
@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( 'h1_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,15 +20,15 @@ if ( ! function_exists( '_s_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function _s_setup() {
+function h1_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on _s, use a find and replace
-	 * to change '_s' to the name of your theme in all the template files
+	 * If you're building a theme based on H1 Theme, use a find and replace
+	 * to change 'h1-theme' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'h1-theme', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -42,7 +42,7 @@ function _s_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', '_s' ),
+		'primary' => __( 'Primary Menu', 'h1-theme' ),
 	) );
 	
 	/*
@@ -53,78 +53,71 @@ function _s_setup() {
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link'
-	) );
+	// Enable support for Post Formats.
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'h1_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+endif; // h1_setup
+add_action( 'after_setup_theme', 'h1_setup' );
 
 /**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * Register widgetized area and update sidebar with default widgets.
  */
-function _s_widgets_init() {
+function h1_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', '_s' ),
+		'name'          => __( 'Sidebar', 'h1-theme' ),
 		'id'            => 'sidebar-1',
-		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', 'h1_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+function h1_scripts() {
+	$css_dir = get_stylesheet_directory_uri() . '/assets/styles/css';
+	$js_dir = get_stylesheet_directory_uri() . '/assets/js/min';
 
-	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_style( 'h1-theme-base', $css_dir . '/base.css' );
+	wp_enqueue_style( 'h1-theme-advanced', $css_dir . '/advanced.css' );
 
-	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'h1-theme-modernizr', $js_dir . '/custom.modernizr.js', null );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'h1-theme-vendors', $js_dir . '/vendor.min.js', array('h1-theme-modernizr', 'jquery'), null, true );
+	wp_enqueue_script( 'h1-theme-foundation', $js_dir . '/foundation.min.js', array('h1-theme-modernizr','jquery','h1-theme-vendors'), null, true );
+	wp_enqueue_script( 'h1-theme-app', $js_dir . '/app.min.js', array( 'jquery', 'h1-theme-modernizr', 'h1-theme-vendors', 'h1-theme-foundation' ), null, true );
+
+	// wp_enqueue_script( 'h1-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	// wp_enqueue_script( 'h1-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	// 	wp_enqueue_script( 'comment-reply' );
+	// }
 }
-add_action( 'wp_enqueue_scripts', '_s_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
+add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/functions/template-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/functions/extras.php';
 
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+// require get_template_directory() . '/functions/jetpack.php';
