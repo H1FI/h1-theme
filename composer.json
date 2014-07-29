@@ -1,0 +1,14 @@
+{
+    "name": "h1fi/h1-theme",
+    "description": "An H1 fork of H1 Theme by Automattic",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Daniel Koskinen",
+            "email": "dani@dani.fi"
+        }
+    ],
+    "require": {
+
+    }
+}
