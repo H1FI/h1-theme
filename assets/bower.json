@@ -1,0 +1,20 @@
+{
+  "name": "h1-theme",
+  "version": "0.0.1",
+  "homepage": "https://github.com/H1FI/h1-theme",
+  "authors": [
+    "Daniel Koskinen <dani@dani.fi>"
+  ],
+  "license": "GPLv2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.3.1",
+  }
+}
