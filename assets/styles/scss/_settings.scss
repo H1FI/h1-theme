@@ -2,8 +2,8 @@
 // FOUNDATION SETTINGS
 //
 
-// Uncomment to use rem-calc() in your settings
-@import "foundation/functions";
+// Allows the use of rem-calc() or lower-bound() in your settings
+@import "../../bower_components/foundation/scss/foundation/functions";
 
 $experimental: true;
 
@@ -22,13 +22,13 @@ $base-line-height: 150%;
 $rem-base: 16px;
 
 // We use this to control whether or not CSS classes come through in the gem files.
-$include-html-classes: true;
+$include-html-classes: false;
 $include-print-styles: true;
 $include-html-global-classes: $include-html-classes;
 
 // Grid
 
-$include-html-grid-classes: $include-html-classes;
+$include-html-grid-classes: true;
 
 $row-width: rem-calc(1000);
 $column-gutter: rem-calc(30);
@@ -159,7 +159,7 @@ $large: $large-up;
 
 // Block Grid
 
-// $include-html-grid-classes: $include-html-classes;
+$include-html-block-grid-classes: true;
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
