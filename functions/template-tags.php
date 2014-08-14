@@ -193,9 +193,10 @@ add_action( 'save_post',     'h1_category_transient_flusher' );
 /** 
  * Sub navigation, based on code from Simple Section Navigation by jakemgold and thinkoomph, http://wordpress.org/extend/plugins/simple-section-navigation/
  * 
+ * 
  * @copyright Daniel Koskinen, Jake Goldman, thinkoomph
  * @author Daniel Koskinen
- * @version 1.1
+ * @version 1.2
  **/
 function h1_section_nav( $args = array() ) {
 
@@ -207,7 +208,7 @@ function h1_section_nav( $args = array() ) {
 			'show_top' => false, // whether to repeat top level parent
 			'excluded' => array(), // id's of pages to be excluded
 			'exclude_list' => '',
-			'menu_class' => '',
+			'menu_class' => 'sidemenu',
 			'link_before' => '',
 			'link_after' => ''
 		);
@@ -250,6 +251,7 @@ function h1_section_nav( $args = array() ) {
 		}		
 		
 		//get the list of pages, including only those in our page list
+		// uncomment walker if you want custom classes
 		$children = wp_list_pages(array( 
 			'title_li' => '', 
 			'echo' => 0, 
@@ -257,7 +259,8 @@ function h1_section_nav( $args = array() ) {
 			'child_of' => $top_page, 
 			'exclude' => $exclude_list,
 			'link_before' => $link_before,
-			'link_after' => $link_after
+			'link_after' => $link_after,
+			// 'walker' => new H1_Walker_Page( 'sidemenu__', $top_page ) 
 			));
 
 		if( !$children ) return false; 	//if there are no pages in this section, leave the function
@@ -269,14 +272,14 @@ function h1_section_nav( $args = array() ) {
 			if ( $link_after != '' )
 				$sect_title = $sect_title . $link_after;
 
-			$headclass = ( $post->ID == $top_page ) ? "current_page_item" : "current_page_ancestor";
-			if ( $post->post_parent == $top_page ) $headclass .= " current_page_parent";
+			$headclass = ( $post->ID == $top_page ) ? $menu_class . "__item--current" : $menu_class . "__item--current_ancestor";
+			if ( $post->post_parent == $top_page ) $headclass .= $menu_class . "__item--current_ancestor";
 			$sect_title = '<a href="' . get_page_link($top_page) . '" id="toppage-' . $top_page . '" class="' . $headclass . '">' . $sect_title . '</a>';	
 		}
 	  	
 				
 		if ( $menu_class != '' )
-			echo "<ul class=\"". $menu_class ."\">";
+			echo "<ul class=\"". $menu_class ."__navlist\">";
 		else echo "<ul>";
 		if ($show_top) echo '<li class="'.$headclass.'">'.$sect_title.'</li>';
 		echo apply_filters( 'simple_section_page_list', $children );

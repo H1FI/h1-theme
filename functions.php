@@ -118,6 +118,16 @@ require get_template_directory() . '/functions/template-tags.php';
 require get_template_directory() . '/functions/extras.php';
 
 /**
+ * Load Foundation compatibility file.
+ */
+// require get_template_directory() . '/functions/foundation.php';
+
+/**
+ * Load Custom walkers for use in nav menus
+ */
+// require get_template_directory() . '/functions/custom-walkers.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 // require get_template_directory() . '/functions/jetpack.php';
