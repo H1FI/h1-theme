@@ -47,21 +47,33 @@ class H1_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( 'menu-item' == $class && $item->menu_item_parent == 0 ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}item";
 
+				/**
+				 * Set item--current if this is a current page or ancestor of the current page
+				 */
 				if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
 					$custom_classes[] = "{$this->h1_custom_prefix}item--current";
 				}
 			} elseif ( 'menu-item' == $class && $item->menu_item_parent > 0 ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}subitem";
 
+				/**
+				 * Set subitem--current if this is a current page or ancestor of the current page
+				 */
 				if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
 					$custom_classes[] = "{$this->h1_custom_prefix}subitem--current";					
 				}				
 			}
 
+			/**
+			 * Have we got children?
+			 */
 			if ( 'menu-item-has-children' == $class ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}item--has_subnav";
 			}
 
+			/**
+			 * In case we need to style the home link differently
+			 */
 			if ( 'menu-item-home' == $class || "{$this->h1_custom_prefix}item--home" == $class ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}item--home";
 			}
