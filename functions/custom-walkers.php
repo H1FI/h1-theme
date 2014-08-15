@@ -47,13 +47,13 @@ class H1_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( 'menu-item' == $class && $item->menu_item_parent == 0 ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}item";
 
-				if ( 'current_page_item' == $class ) {
-					$custom_classes[] = "{$this->h1_custom_prefix}item--current";					
+				if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
+					$custom_classes[] = "{$this->h1_custom_prefix}item--current";
 				}
 			} elseif ( 'menu-item' == $class && $item->menu_item_parent > 0 ) {
 				$custom_classes[] = "{$this->h1_custom_prefix}subitem";
 
-				if ( 'current-menu-item' == $class ) {
+				if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
 					$custom_classes[] = "{$this->h1_custom_prefix}subitem--current";					
 				}				
 			}
