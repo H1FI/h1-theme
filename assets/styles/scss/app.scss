@@ -1,2 +1,15 @@
+@import "compass";
+
+// Foundation
 @import "settings";
 @import "foundation";
+
+// Normalize
+// Foundation includes normalize.scss, so this is not needed if you have imported the foundation above.
+//@import "normalize.scss";
+
+// WordPress
+@import "wp";
+
+// Modules
+// @import "modules/";
