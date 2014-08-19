@@ -1,4 +1,5 @@
 assets/.sass-cache
+assets/bower_components
+assets/node_modules
 /vendor/
-/node_modules/
 node_modules
