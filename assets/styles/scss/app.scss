@@ -2,10 +2,10 @@
 
 // Foundation
 @import "settings";
-@import "foundation";
+@import "../../bower_components/foundation/scss/normalize";
+@import "../../bower_components/foundation/scss/foundation";
 
 // Normalize
-// Foundation includes normalize.scss, so this is not needed if you have imported the foundation above.
 //@import "normalize.scss";
 
 // WordPress
