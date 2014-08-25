@@ -124,7 +124,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 td, th { padding: 0; }
 
-meta.foundation-version { font-family: "/5.3.3/"; }
+meta.foundation-version { font-family: "/{{ VERSION }}/"; }
 
 meta.foundation-mq-small { font-family: "/only screen/"; width: 0em; }
 
@@ -170,6 +170,9 @@ img { display: inline-block; vertical-align: middle; }
 textarea { height: auto; min-height: 50px; }
 
 select { width: 100%; }
+
+/* Accessibility - hides the forward slash */
+[aria-label="breadcrumbs"] [aria-hidden="true"]:after { content: "/"; }
 
 /* The classes in this file are required by WordPress. */
 /* =Text for Screen Readers

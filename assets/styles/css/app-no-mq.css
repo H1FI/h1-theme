@@ -326,7 +326,7 @@ th {
 }
 
 meta.foundation-version {
-  font-family: "/5.3.3/";
+  font-family: "/{{ VERSION }}/";
 }
 
 meta.foundation-mq-small {
@@ -450,6 +450,12 @@ textarea {
 
 select {
   width: 100%;
+}
+
+/* Accessibility - hides the forward slash */
+
+[aria-label="breadcrumbs"] [aria-hidden="true"]:after {
+  content: "/";
 }
 
 /* The classes in this file are required by WordPress. */
