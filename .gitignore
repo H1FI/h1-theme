@@ -1,5 +1,6 @@
 assets/.sass-cache
 assets/bower_components
 assets/node_modules
+.DS_Store
 /vendor/
 node_modules
