@@ -13,7 +13,8 @@
 
 get_header(); ?>
 
-	<?php get_template_part( 'parts/contentheader', 'index' ); ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -38,7 +39,8 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-	<?php get_template_part( 'parts/contentfooter', 'index' ); ?>
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
