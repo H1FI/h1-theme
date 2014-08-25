@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-	<?php get_template_part( 'parts/content', 'header' ); ?>
+	<?php get_template_part( 'parts/contentheader', 'index' ); ?>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -38,7 +38,7 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-	<?php get_template_part( 'parts/content', 'footer' ); ?>
+	<?php get_template_part( 'parts/contentfooter', 'index' ); ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
