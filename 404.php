@@ -7,8 +7,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php get_template_part( 'parts/content', 'header' ); ?>
 
 			<section class="error-404 not-found">
 				<header class="page-header">
@@ -50,7 +49,6 @@ get_header(); ?>
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<?php get_template_part( 'parts/content', 'footer' ); ?>
 
 <?php get_footer(); ?>
