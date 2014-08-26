@@ -1,6 +1,9 @@
 ( function( $ ) {
 
 	// Load Foundation
-	//$(document).foundation();
+	// $(function() {
+	// 	$(document).foundation();
+	// });
+
 
 } )( jQuery );
