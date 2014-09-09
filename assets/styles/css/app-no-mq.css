@@ -458,6 +458,624 @@ select {
   content: "/";
 }
 
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.small-only-text-left {
+  text-align: left !important;
+}
+
+.small-only-text-right {
+  text-align: right !important;
+}
+
+.small-only-text-center {
+  text-align: center !important;
+}
+
+.small-only-text-justify {
+  text-align: justify !important;
+}
+
+.small-text-left {
+  text-align: left !important;
+}
+
+.small-text-right {
+  text-align: right !important;
+}
+
+.small-text-center {
+  text-align: center !important;
+}
+
+.small-text-justify {
+  text-align: justify !important;
+}
+
+.medium-only-text-left {
+  text-align: left !important;
+}
+
+.medium-only-text-right {
+  text-align: right !important;
+}
+
+.medium-only-text-center {
+  text-align: center !important;
+}
+
+.medium-only-text-justify {
+  text-align: justify !important;
+}
+
+.medium-text-left {
+  text-align: left !important;
+}
+
+.medium-text-right {
+  text-align: right !important;
+}
+
+.medium-text-center {
+  text-align: center !important;
+}
+
+.medium-text-justify {
+  text-align: justify !important;
+}
+
+.large-only-text-left {
+  text-align: left !important;
+}
+
+.large-only-text-right {
+  text-align: right !important;
+}
+
+.large-only-text-center {
+  text-align: center !important;
+}
+
+.large-only-text-justify {
+  text-align: justify !important;
+}
+
+.large-text-left {
+  text-align: left !important;
+}
+
+.large-text-right {
+  text-align: right !important;
+}
+
+.large-text-center {
+  text-align: center !important;
+}
+
+.large-text-justify {
+  text-align: justify !important;
+}
+
+.xlarge-only-text-left {
+  text-align: left !important;
+}
+
+.xlarge-only-text-right {
+  text-align: right !important;
+}
+
+.xlarge-only-text-center {
+  text-align: center !important;
+}
+
+.xlarge-only-text-justify {
+  text-align: justify !important;
+}
+
+.xlarge-text-left {
+  text-align: left !important;
+}
+
+.xlarge-text-right {
+  text-align: right !important;
+}
+
+.xlarge-text-center {
+  text-align: center !important;
+}
+
+.xlarge-text-justify {
+  text-align: justify !important;
+}
+
+.xxlarge-only-text-left {
+  text-align: left !important;
+}
+
+.xxlarge-only-text-right {
+  text-align: right !important;
+}
+
+.xxlarge-only-text-center {
+  text-align: center !important;
+}
+
+.xxlarge-only-text-justify {
+  text-align: justify !important;
+}
+
+.xxlarge-text-left {
+  text-align: left !important;
+}
+
+.xxlarge-text-right {
+  text-align: right !important;
+}
+
+.xxlarge-text-center {
+  text-align: center !important;
+}
+
+.xxlarge-text-justify {
+  text-align: justify !important;
+}
+
+/* Typography resets */
+
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Default Link Styles */
+
+a {
+  color: #008cba;
+  text-decoration: none;
+  line-height: inherit;
+}
+
+a:hover,
+a:focus {
+  color: #0078a0;
+}
+
+a img {
+  border: none;
+}
+
+/* Default paragraph styles */
+
+p {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+p.lead {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+p aside {
+  font-size: 14px;
+  line-height: 1.35;
+  font-style: italic;
+}
+
+/* Default header styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  margin-top: 3px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  font-size: 60%;
+  color: #6f6f6f;
+  line-height: 0;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 27px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+.subheader {
+  line-height: 1.4;
+  color: #6f6f6f;
+  font-weight: normal;
+  margin-top: 3px;
+  margin-bottom: 8px;
+}
+
+hr {
+  border: solid #dddddd;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 20px 0 19px;
+  height: 0;
+}
+
+/* Helpful Typography Defaults */
+
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong,
+b {
+  font-weight: bold;
+  line-height: inherit;
+}
+
+small {
+  font-size: 60%;
+  line-height: inherit;
+}
+
+code {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-weight: normal;
+  color: #333333;
+  background-color: #f8f8f8;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dfdfdf;
+  padding: 2px 5px 1px;
+}
+
+/* Lists */
+
+ul,
+ol,
+dl {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  list-style-position: outside;
+  font-family: inherit;
+}
+
+ul {
+  margin-left: 17px;
+}
+
+ul.no-bullet {
+  margin-left: 0;
+}
+
+ul.no-bullet li ul,
+ul.no-bullet li ol {
+  margin-left: 20px;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/* Unordered Lists */
+
+ul li ul,
+ul li ol {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+ul.square li ul,
+ul.circle li ul,
+ul.disc li ul {
+  list-style: inherit;
+}
+
+ul.square {
+  list-style-type: square;
+  margin-left: 17px;
+}
+
+ul.circle {
+  list-style-type: circle;
+  margin-left: 17px;
+}
+
+ul.disc {
+  list-style-type: disc;
+  margin-left: 17px;
+}
+
+ul.no-bullet {
+  list-style: none;
+}
+
+/* Ordered Lists */
+
+ol {
+  margin-left: 22px;
+}
+
+ol li ul,
+ol li ol {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+/* Definition Lists */
+
+dl dt {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+dl dd {
+  margin-bottom: 12px;
+}
+
+/* Abbreviations */
+
+abbr,
+acronym {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: #222222;
+  border-bottom: 1px dotted #dddddd;
+  cursor: help;
+}
+
+abbr {
+  text-transform: none;
+}
+
+/* Blockquotes */
+
+blockquote {
+  margin: 0 0 20px;
+  padding: 9px 20px 0 19px;
+  border-left: 1px solid #dddddd;
+}
+
+blockquote cite {
+  display: block;
+  font-size: 13px;
+  color: #555555;
+}
+
+blockquote cite:before {
+  content: "\2014 \0020";
+}
+
+blockquote cite a,
+blockquote cite a:visited {
+  color: #555555;
+}
+
+blockquote,
+blockquote p {
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+
+/* Microformats */
+
+.vcard {
+  display: inline-block;
+  margin: 0 0 20px 0;
+  border: 1px solid #dddddd;
+  padding: 10px 12px;
+}
+
+.vcard li {
+  margin: 0;
+  display: block;
+}
+
+.vcard .fn {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.vevent .summary {
+  font-weight: bold;
+}
+
+.vevent abbr {
+  cursor: default;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  padding: 0 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 37px;
+}
+
+h3 {
+  font-size: 27px;
+}
+
+h4 {
+  font-size: 23px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+/* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+*/
+
+.print-only {
+  display: none !important;
+}
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+@page {
+    margin: 0.5cm;
+}
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .hide-on-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .hide-for-print {
+    display: none !important;
+  }
+
+  .show-for-print {
+    display: inherit !important;
+  }
+}
+
 /* The classes in this file are required by WordPress. */
 
 /* =Text for Screen Readers
