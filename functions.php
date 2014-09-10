@@ -85,7 +85,7 @@ add_action( 'widgets_init', 'h1_widgets_init' );
  */
 function h1_scripts() {
 	$css_dir = get_stylesheet_directory_uri() . '/assets/styles/css';
-	$js_dir = get_stylesheet_directory_uri() . '/assets/js/min';
+	$js_dir = get_stylesheet_directory_uri() . '/assets/js/';
 
 	wp_enqueue_style( 'h1-stylesheet', $css_dir . '/app.css' );
 
@@ -96,7 +96,12 @@ function h1_scripts() {
     $wp_styles->registered['h1-legacy-stylesheet']->add_data( 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'h1-js', $js_dir . '/built.min.js', array( 'jquery' ) );
+
+	if ( defined( 'WP_ENV' ) && WP_ENV == 'development' ) {
+		wp_enqueue_script( 'h1-js', $js_dir . '/dev/built.js', array( 'jquery' ), null, true );
+	} else {
+		wp_enqueue_script( 'h1-js', $js_dir . '/min/built.min.js', array( 'jquery' ), null, true );
+	}
 
 	// Comment out or remove if you don't need commenting
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

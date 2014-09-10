@@ -372,6 +372,17 @@ blockquote, blockquote p { line-height: 1.6; color: #6f6f6f; }
 
 /*
 
+NAVIGATION STYLES
+
+
+*/
+/* Small menu */
+.menu-toggle { display: none; }
+
+@media screen and (max-width: 600px) { .menu-toggle, .main-navigation.toggled .nav-menu { display: block; }
+  .main-navigation ul { display: none; } }
+/*
+
 The naughty file: sometimes you need to do a quick dirty fix and don't know where to put the
 CSS. Don't worry, it's OK. You can put the code here and figure out later where to put it.
 
