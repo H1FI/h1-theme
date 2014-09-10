@@ -89,12 +89,19 @@ function h1_scripts() {
 
 	wp_enqueue_style( 'h1-stylesheet', $css_dir . '/app.css' );
 
+	wp_enqueue_style( 'h1-legacy-stylesheet', $css_dir . '/app-no-mq.css' ); // no mediaqueries, px instead of rem
+
+	// Add conditional comments
+    global $wp_styles;
+    $wp_styles->registered['h1-legacy-stylesheet']->add_data( 'conditional', 'lt IE 9' );
+
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'h1-js', $js_dir . '/built.min.js', array( 'jquery' ) );
 
-	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-	// 	wp_enqueue_script( 'comment-reply' );
-	// }
+	// Comment out or remove if you don't need commenting
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 
