@@ -111,7 +111,7 @@ require get_template_directory() . '/functions/extras.php';
 /**
  * Load Foundation compatibility file.
  */
-// require get_template_directory() . '/functions/foundation.php';
+require get_template_directory() . '/functions/foundation.php';
 
 /**
  * Load Custom walkers for use in nav menus

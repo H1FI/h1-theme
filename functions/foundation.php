@@ -1,5 +1,22 @@
 <?php
 
+add_action('wp_head', 'add_header_styles');
+/**
+ * Make the admin bar play nicely with Foundation, thanks to Kirsten at
+ * http://foundation.zurb.com/forum/posts/1744-the-wordpress-admin-bar-getting-it-to-play-nice-with-foundation-5
+ */
+function add_header_styles() {
+    if ( is_admin_bar_showing() ) {?>
+        <style>
+        .top-bar{ margin-top: 32px; } 
+        @media screen and (max-width: 600px) {
+            .top-bar{ margin-top: 46px; } 
+            #wpadminbar { position: fixed !important; }
+        }
+        </style>
+    <?php }
+}
+
 add_filter( 'post_gallery', 'h1_foundation_gallery_shortcode', 10, 2 );
 /**
  * The Modified Gallery shortcode.
