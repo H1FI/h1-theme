@@ -135,3 +135,24 @@ function h1_foundation_gallery_shortcode($defaults = '', $attr) {
 
     return $output;
 }
+
+/**
+ * Filter video oembeds and wrap with Foundations flex-video
+ */
+function h1_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
+
+    $matches = array(
+            'youtube.com',
+            'vimeo.com',
+            'youtu.be'
+        );
+
+    foreach ( $matches as $match ) {
+        if ( false !== stripos( $url, $match ) )
+            return '<div class="flex-video">' . $html . '</div>';
+    }
+
+    return $html;
+
+}
+add_filter('embed_oembed_html', 'h1_foundation_embed_oembed_html', 99, 4);
