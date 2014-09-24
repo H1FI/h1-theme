@@ -66,21 +66,6 @@ endif; // h1_setup
 add_action( 'after_setup_theme', 'h1_setup' );
 
 /**
- * Register widgetized area and update sidebar with default widgets.
- */
-function h1_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'h1-theme' ),
-		'id'            => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'h1_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function h1_scripts() {
@@ -111,6 +96,26 @@ function h1_scripts() {
 add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 
 /**
+ * Define sidebars and possible custom widgets
+ */
+require get_stylesheet_directory() . '/functions/widgets.php';
+
+/**
+ * Load Foundation compatibility file.
+ */
+require get_template_directory() . '/functions/foundation.php';
+
+/**
+ * Navigation-related functions to be used in templates
+ */
+require get_template_directory() . '/functions/navigation.php';
+
+/**
+ * Load Custom walkers for use in nav menus
+ */
+// require get_template_directory() . '/functions/navigation-walkers.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/functions/template-tags.php';
@@ -120,15 +125,6 @@ require get_template_directory() . '/functions/template-tags.php';
  */
 require get_template_directory() . '/functions/extras.php';
 
-/**
- * Load Foundation compatibility file.
- */
-require get_template_directory() . '/functions/foundation.php';
-
-/**
- * Load Custom walkers for use in nav menus
- */
-// require get_template_directory() . '/functions/custom-walkers.php';
 
 /**
  * Load Jetpack compatibility file.
