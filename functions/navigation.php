@@ -3,8 +3,6 @@
 if ( ! function_exists( 'h1_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
- * @return void
  */
 function h1_paging_nav() {
 	// Don't print empty markup if there's only one page.
@@ -33,8 +31,6 @@ endif;
 if ( ! function_exists( 'h1_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
- *
- * @return void
  */
 function h1_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
@@ -48,10 +44,10 @@ function h1_post_nav() {
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'h1-theme' ); ?></h1>
 		<div class="nav-links">
-
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'h1-theme' ) ); ?>
-			<?php next_post_link(     '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'h1-theme' ) ); ?>
-
+			<?php
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'h1-theme' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'h1-theme' ) );
+			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
