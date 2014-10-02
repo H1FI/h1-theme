@@ -38,7 +38,7 @@ function h1_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -50,11 +50,11 @@ function h1_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
 	) );
 
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	//add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'h1_custom_background_args', array(
@@ -70,15 +70,24 @@ add_action( 'after_setup_theme', 'h1_setup' );
  */
 function h1_scripts() {
 	$css_dir = get_stylesheet_directory_uri() . '/assets/styles/css';
-	$js_dir = get_stylesheet_directory_uri() . '/assets/js/';
+	$js_dir  = get_stylesheet_directory_uri() . '/assets/js/';
+
+	/**
+	 * CSS
+	 */
 
 	wp_enqueue_style( 'h1-stylesheet', $css_dir . '/app.css' );
 
-	wp_enqueue_style( 'h1-legacy-stylesheet', $css_dir . '/app-no-mq.css' ); // no mediaqueries, px instead of rem
+	// Legacy CSS (no mediaqueries, px instead of rem)
+	wp_enqueue_style( 'h1-legacy-stylesheet', $css_dir . '/app-no-mq.css' );
 
-	// Add conditional comments
-    global $wp_styles;
-    $wp_styles->registered['h1-legacy-stylesheet']->add_data( 'conditional', 'lt IE 9' );
+	// Add Legacy CSS based on conditional tags
+	global $wp_styles;
+	$wp_styles->registered['h1-legacy-stylesheet']->add_data( 'conditional', 'lt IE 9' );
+
+	/**
+	 * JavaScript
+	 */
 
 	wp_enqueue_script( 'jquery' );
 
@@ -96,7 +105,7 @@ function h1_scripts() {
 add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 
 /**
- * Define sidebars and possible custom widgets
+ * Define sidebars and possible custom widgets.
  */
 require get_stylesheet_directory() . '/functions/widgets.php';
 
@@ -106,7 +115,7 @@ require get_stylesheet_directory() . '/functions/widgets.php';
 require get_template_directory() . '/functions/foundation.php';
 
 /**
- * Navigation-related functions to be used in templates
+ * Navigation-related functions to be used in templates.
  */
 require get_template_directory() . '/functions/navigation.php';
 
@@ -124,7 +133,6 @@ require get_template_directory() . '/functions/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/functions/extras.php';
-
 
 /**
  * Load Jetpack compatibility file.
