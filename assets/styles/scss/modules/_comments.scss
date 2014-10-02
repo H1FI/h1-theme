@@ -1,0 +1,59 @@
+/**
+ * .comments.php
+ */
+
+.comments-area {}
+
+	.comments-title {}
+
+	.comment-navigation {}
+
+	.comment-list {}
+
+		.comment {
+
+			&.odd {}
+
+			&.even {}
+
+			&.alt {}
+
+			&.thread-odd {}
+
+			&.thread-even {}
+
+			&.thread-alt {}
+
+			&.parent {}
+		}
+
+			.comment-body {}
+
+				.comment-meta {}
+
+					.comment-author {
+
+						&.vcard {}
+					}
+
+						.avatar {}
+
+						.fn {}
+
+						.says {}
+
+					.comment-metadata {}
+
+						.edit-link {}
+
+							.comment-edit-link {}
+
+				.comment-content {}
+
+				.reply {}
+
+					.comment-reply-link {}
+
+			.children {}
+
+		.no-comments {}
