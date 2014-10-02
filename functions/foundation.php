@@ -109,7 +109,7 @@ function h1_foundation_gallery_shortcode($defaults = '', $attr) {
 
         $has_caption = $captiontag && trim($attachment->post_excerpt) ? true : false;
 
-        $link = "<a href='$link_url'><img src='$thumb_src' ";
+        $link = "<a href='$link_url' class='gallery-item__link'><img src='$thumb_src' class='gallery-item__thumbnail' ";
 
         if ( $has_caption )
             $link .= " data-caption='". wptexturize( strip_tags( $attachment->post_excerpt ) ) . "' ";
