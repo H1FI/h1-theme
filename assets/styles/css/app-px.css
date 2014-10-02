@@ -381,6 +381,7 @@ NAVIGATION STYLES
 
 @media screen and (max-width: 600px) { .menu-toggle, .main-navigation.toggled .nav-menu { display: block; }
   .main-navigation ul { display: none; } }
+/** .comments.php */
 /*
 
 The naughty file: sometimes you need to do a quick dirty fix and don't know where to put the
