@@ -1,11 +1,9 @@
 <?php
 /**
- * The template for displaying Comments.
+ * The template for displaying comments.
  *
  * The area of the page that contains both current comments
- * and the comment form. The actual display of comments is
- * handled by a callback to h1_comment() which is
- * located in the inc/template-tags.php file.
+ * and the comment form.
  *
  * @package H1 Theme
  */
@@ -42,13 +40,10 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use h1_comment() to format the comments.
-				 * If you want to override this in a child theme, then you can
-				 * define h1_comment() and that will be used instead.
-				 * See h1_comment() in inc/template-tags.php for more.
-				 */
-				wp_list_comments( array( 'callback' => 'h1_comment' ) );
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				) );
 			?>
 		</ol><!-- .comment-list -->
 
