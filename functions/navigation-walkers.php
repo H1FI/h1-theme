@@ -211,10 +211,6 @@ class H1_Walker_Page extends Walker_Page {
 		 */
 		$anchor_class = $is_top_level ? "{$this->h1_custom_prefix}link" : "{$this->h1_custom_prefix}sublink" ;
 
-		$output .= '<!--';
-		$output .= print_r( $page, true );
-		$output .= '-->';
-
 		/** This filter is documented in wp-includes/post-template.php */
 		$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_permalink($page->ID) . '" class="' . $anchor_class .'">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
 
