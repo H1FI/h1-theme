@@ -124,7 +124,7 @@ function h1_section_nav( $args = array() ) {
 			'exclude' => $exclude_list,
 			'link_before' => $link_before,
 			'link_after' => $link_after,
-			// 'walker' => new H1_Walker_Page( 'sidemenu__', $top_page ) 
+			// 'walker' => new H1_Walker_Page( $menu_class . '__', $top_page ) 
 			));
 
 		if( !$children ) return false; 	//if there are no pages in this section, leave the function
@@ -143,7 +143,7 @@ function h1_section_nav( $args = array() ) {
 	  	
 				
 		if ( $menu_class != '' )
-			echo "<ul class=\"". $menu_class ."__navlist\">";
+			echo "<ul class=\"". $menu_class ."\">";
 		else echo "<ul>";
 		if ($show_top) echo '<li class="'.$headclass.'">'.$sect_title.'</li>';
 		echo apply_filters( 'simple_section_page_list', $children );
