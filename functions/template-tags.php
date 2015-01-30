@@ -104,6 +104,9 @@ function h1_categorized_blog() {
  * Flush out the transients used in h1_categorized_blog.
  */
 function h1_category_transient_flusher() {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
 	// Like, beat it. Dig?
 	delete_transient( 'h1_categories' );
 }

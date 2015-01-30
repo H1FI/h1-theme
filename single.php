@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all single posts.
+ * The template for displaying all single posts.
  *
  * @package H1 Theme
  */
@@ -14,11 +14,11 @@ get_header(); ?>
 
 			<?php get_template_part( 'parts/entry', 'single' ); ?>
 
-			<?php h1_post_nav(); ?>
+			<?php the_post_navigation(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() ) :
+				if ( comments_open() || get_comments_number() ) :
 					comments_template();
 				endif;
 			?>

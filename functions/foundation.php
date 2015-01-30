@@ -1,10 +1,13 @@
 <?php
+/**
+ * Foundation Specific functions.
+ */
 
-add_action('wp_head', 'h1_foundation_adminbar_styles');
 /**
  * Make the admin bar play nicely with Foundation, thanks to Kirsten at
  * http://foundation.zurb.com/forum/posts/1744-the-wordpress-admin-bar-getting-it-to-play-nice-with-foundation-5
  */
+add_action('wp_head', 'h1_foundation_adminbar_styles');
 function h1_foundation_adminbar_styles() {
     if ( is_admin_bar_showing() ) {?>
         <style>
@@ -17,7 +20,6 @@ function h1_foundation_adminbar_styles() {
     <?php }
 }
 
-add_filter( 'post_gallery', 'h1_foundation_gallery_shortcode', 10, 2 );
 /**
  * The Modified Gallery shortcode.
  *
@@ -26,6 +28,7 @@ add_filter( 'post_gallery', 'h1_foundation_gallery_shortcode', 10, 2 );
  * @param array $attr Attributes of the shortcode.
  * @return string HTML content to display gallery.
  */
+add_filter( 'post_gallery', 'h1_foundation_gallery_shortcode', 10, 2 );
 function h1_foundation_gallery_shortcode($defaults = '', $attr) {
     global $post;
 
@@ -139,6 +142,7 @@ function h1_foundation_gallery_shortcode($defaults = '', $attr) {
 /**
  * Filter video oembeds and wrap with Foundations flex-video
  */
+add_filter('embed_oembed_html', 'h1_foundation_embed_oembed_html', 99, 4);
 function h1_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
 
     $matches = array(
@@ -155,4 +159,3 @@ function h1_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
     return $html;
 
 }
-add_filter('embed_oembed_html', 'h1_foundation_embed_oembed_html', 99, 4);

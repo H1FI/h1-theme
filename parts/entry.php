@@ -19,7 +19,7 @@
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'h1-theme' ), 
+				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'h1-theme' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 		?>
