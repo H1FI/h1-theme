@@ -10,7 +10,6 @@
     "grunt-sass": "^0.16.0",
     "grunt-legacssy": "~0.4.0",
     "grunt-pixrem": "~0.1.2",
-    "grunt-autoprefixer" : "~2.2.0",
-    "grunt-libsass": "*"
+    "grunt-autoprefixer" : "~2.2.0"
   }
 }
