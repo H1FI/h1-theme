@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 			  src: [
-			  	// 'bower_components/foundation/js/foundation/foundation.js', 
+			  	// 'bower_components/foundation/js/foundation/foundation.js',
 			  	// 'bower_components/foundation/js/foundation/foundation.dropdown.js'
 			  	'js/dev/wp/*',
 			  	'js/dev/app.js'
@@ -20,17 +20,16 @@ module.exports = function(grunt) {
 			},
 		},
 
-		// Compass does not seem to properly respect settings in gruntfile, so config is done in config.rb
-		compass: {
-			dist: {
-				options: {
-					config: 'config.rb',
-				},
+		// SASS compile
+		sass: {
+			options: {
+				sourceMap: true,
+				outputStyle: 'compressed'
 			},
-			dev: {
-				options: {
-					config: 'config.rb',
-				},
+			dist: {
+				files: {
+					'styles/css/app.css' : 'styles/scss/app.scss'
+				}
 			}
 		},
 
@@ -56,9 +55,9 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'styles/css/app-no-mq.css': 'styles/css/app-px.css',
-				},				
+				},
 			}
-		},	
+		},
 
 		// Minify for production
 		uglify: {
@@ -72,23 +71,36 @@ module.exports = function(grunt) {
 			},
 		},
 
-		// Watch sass and main js file for changes
+		// Browser prefixes
+		autoprefixer: {
+			options: {
+				// Task-specific options go here.
+				browsers: ['> 1%', 'last 4 versions', 'Firefox ESR', 'Opera 12.1']
+			},
+			dist: {
+				src: 'styles/css/app.css',
+				dest: 'styles/css/app.css'
+			}
+		},
+
+		// Watch scss and js files for chagne
 		watch: {
-			files: ['styles/scss/**/*', 'js/dev/app.js'],
+			files: ['styles/scss/**/*', 'js/dev/**/*'],
 			tasks: 'dev'
 		}
 	});
 
 	// Load plugin(s) needed for task(s)
 	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-legacssy');
 	grunt.loadNpmTasks('grunt-pixrem');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-autoprefixer');
+	grunt.loadNpmTasks('grunt-sass');
 
 	// Register task(s)
-	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'pixrem', 'legacssy', 'uglify:dist']);
-	grunt.registerTask('dev', ['concat:dist','compass:dev']);
+	grunt.registerTask( 'default', [ 'concat:dist', 'sass:dist', 'autoprefixer', 'pixrem', 'legacssy', 'uglify:dist' ] );
+	grunt.registerTask( 'dev', [ 'concat:dist', 'sass:dist', 'autoprefixer'] );
 
 };

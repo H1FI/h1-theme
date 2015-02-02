@@ -1,15 +1,11 @@
-@import "compass";
-
 // Foundation
 @import "settings";
 @import "../../bower_components/foundation/scss/normalize";
 @import "../../bower_components/foundation/scss/foundation";
 
-// Normalize
-//@import "normalize.scss";
-
-// WordPress
-@import "wp";
+// Vendor
+//@import "vendor/normalize.scss"; // Normalize is included in Foundation.
+@import "vendor/wp";
 
 // Modules
 @import "modules/navigation";
