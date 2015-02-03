@@ -30,7 +30,7 @@
  *
  * @uses Walker_Nav_Menu
  */
-class New_H1_Walker_Nav_Menu extends Walker_Nav_Menu {
+class H1_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	var $h1_custom_prefix;
 	var $h1_sublink_naming;
@@ -38,7 +38,7 @@ class New_H1_Walker_Nav_Menu extends Walker_Nav_Menu {
 	/**
 	 * Setup the prefix and sublink naming for this walker.
 	 */
-	function __construct( $prefix, $sublink ) {
+	function __construct( $prefix, $sublink = null ) {
 		$this->h1_custom_prefix  = ( isset( $prefix ) ) ? esc_attr( $prefix ) : 'menu';
 		$this->h1_sublink_naming = ( isset( $sublink ) && 'use_sublink' == $sublink ) ? true : false;
 	}
