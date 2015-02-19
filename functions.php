@@ -100,15 +100,6 @@ function h1_scripts() {
 	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
 
 	/**
-	 * Enqueue styles.
-	 */
-	wp_enqueue_style( 'h1-stylesheet' );
-
-	global $wp_styles;
-	$wp_styles->registered['h1-stylesheet-legacy']->add_data( 'conditional', 'lt IE 9' ); // Add legacy CSS for IE8 and below.
-
-
-	/**
 	 * Enqueue scripts.
 	 */
 	wp_enqueue_script( 'jquery' );
@@ -122,6 +113,15 @@ function h1_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	/**
+	 * Enqueue styles.
+	 */
+	wp_enqueue_style( 'h1-stylesheet' );
+
+	global $wp_styles;
+	$wp_styles->registered['h1-stylesheet-legacy']->add_data( 'conditional', 'lt IE 9' ); // Add legacy CSS for IE8 and below.
+
 }
 add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 

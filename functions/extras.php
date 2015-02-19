@@ -21,4 +21,4 @@ function h1_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'h1_body_classes' );
+// add_filter( 'body_class', 'h1_body_classes' );

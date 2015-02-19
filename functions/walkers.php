@@ -313,10 +313,10 @@ class H1_Walker_Category extends Walker_Category {
 	/**
 	 * Custom Prefix
 	 */
-	var $rkl_custom_prefix;
+	var $h1_custom_prefix;
 
 	function __construct( $prefix ) {
-		$this->rkl_custom_prefix = esc_attr( $prefix );
+		$this->h1_custom_prefix = esc_attr( $prefix );
 	}
 
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
@@ -324,7 +324,7 @@ class H1_Walker_Category extends Walker_Category {
 			return;
 
 		$indent = str_repeat("\t", $depth);
-		$output .= "$indent<ul class=\"{$this->rkl_custom_prefix}__children\">\n";
+		$output .= "$indent<ul class=\"{$this->h1_custom_prefix}__children\">\n";
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -345,7 +345,7 @@ class H1_Walker_Category extends Walker_Category {
 		);
 
 		$link = '<a href="' . esc_url( get_term_link( $category ) ) . '" ';
-		$link .= 'class="' . $this->rkl_custom_prefix . '__link" ';
+		$link .= 'class="' . $this->h1_custom_prefix . '__link" ';
 		if ( $args['use_desc_for_title'] && ! empty( $category->description ) ) {
 			/**
 			 * Filter the category description for display.
@@ -397,22 +397,22 @@ class H1_Walker_Category extends Walker_Category {
 		}
 		if ( 'list' == $args['style'] ) {
 			$output .= "\t<li";
-			$class = $this->rkl_custom_prefix . '__item';
+			$class = $this->h1_custom_prefix . '__item';
 
 			/**
 			 * Check if the term has children
 			 */
 			$terms = get_term_children( $category->term_id, $category->taxonomy );
 			if ( ! empty( $terms ) ) {
-				$class .= ' ' . $this->rkl_custom_prefix . '__item--has-children';
+				$class .= ' ' . $this->h1_custom_prefix . '__item--has-children';
 			}
 
 			if ( ! empty( $args['current_category'] ) ) {
 				$_current_category = get_term( $args['current_category'], $category->taxonomy );
 				if ( $category->term_id == $args['current_category'] ) {
-					$class .=  ' ' . $this->rkl_custom_prefix .'__item--current';
+					$class .=  ' ' . $this->h1_custom_prefix .'__item--current';
 				} elseif ( $category->term_id == $_current_category->parent ) {
-					$class .=  ' ' . $this->rkl_custom_prefix .'__item--current-parent';
+					$class .=  ' ' . $this->h1_custom_prefix .'__item--current-parent';
 				}
 			}
 			$output .=  ' class="' . $class . '"';
