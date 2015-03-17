@@ -84,20 +84,14 @@ function h1_scripts() {
 	/**
 	 * Directories for scripts and styles.
 	 */
-	$css_dir = get_stylesheet_directory_uri() . '/assets/styles/css';
-	$js_dir  = get_stylesheet_directory_uri() . '/assets/js/';
+	$css_dir = get_template_directory_uri() . '/assets/styles/css';
+	$js_dir  = get_template_directory_uri() . '/assets/js/';
 
 	/**
 	 * Register scripts.
 	 */
 	wp_register_script( 'h1-js', $js_dir . '/min/built.min.js', array( 'jquery' ), null, true );
 	wp_register_script( 'h1-js-dev', $js_dir . '/dev/built.js', array( 'jquery' ), null, true );
-
-	/**
-	 * Register styles.
-	 */
-	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css' );
-	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
 
 	/**
 	 * Enqueue scripts.
@@ -113,6 +107,12 @@ function h1_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	/**
+	 * Register styles.
+	 */
+	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css' );
+	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
 
 	/**
 	 * Enqueue styles.
@@ -133,7 +133,7 @@ add_action( 'wp_enqueue_scripts', 'h1_scripts' );
 /**
  * Define widget areas and possible custom widgets.
  */
-require get_stylesheet_directory() . '/functions/widgets.php';
+require get_template_directory() . '/functions/widgets.php';
 
 /**
  * Load Foundation compatibility file.

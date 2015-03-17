@@ -1,0 +1,9 @@
+default:
+  description: 'Default (production) build'
+  tasks:
+    - 'concat'
+    - 'uglify'
+    - 'sass'
+    - 'autoprefixer'
+    - 'pixrem'
+    - 'legacssy'
