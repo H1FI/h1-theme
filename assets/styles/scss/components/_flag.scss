@@ -1,0 +1,54 @@
+/**
+ * The flag block.
+ *
+ * @url http://csswizardry.com/2013/05/the-flag-object/
+ *
+ * Usage:
+ *
+ *	<div class="flag">
+ *		<div class="flag__head">
+ *			<img src="" alt="" />
+ *		</div>
+ *		<div class="flag__body">
+ *			<p></p>
+ *		</div>
+ *	</div>
+ */
+
+.flag {
+	display: table;
+	width: 100%;
+	padding: $column-gutter/2;
+}
+
+	.flag__head,
+	.flag__body {
+		display: table-cell;
+		vertical-align: middle;
+
+		.flag__top & {
+			vertical-align: top;
+		}
+
+		.flag__bottom & {
+			vertical-align: bottom;
+		}
+	}
+
+	.flag__head {
+		padding-right: $column-gutter/2;
+
+		> * {
+			display: block;
+			max-width: none;
+		}
+
+		.flag--reverse & {
+			padding-right: 0;
+			padding-left: $column-gutter/2;
+		}
+	}
+
+	.flag__body {
+		width: 100%;
+	}

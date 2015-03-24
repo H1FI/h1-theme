@@ -1,0 +1,35 @@
+/**
+ * The media block.
+ *
+ * @url http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ * Usage:
+ *
+ *  <div class="media">
+ * 		<a class="media__head" href=""><img src="" alt="" /></a>
+ * 		<p class="media__body"></p>
+ *  </div>
+ */
+
+.media {
+	padding: $column-gutter/2;
+}
+
+	.media__head {
+		float: left;
+		display: block;
+		margin-right: $column-gutter/2;
+
+		.media--reverse & {
+			float: left;
+			margin-right: 0;
+			margin-left: $column-gutter/2;
+		}
+	}
+
+	.media,
+	.media__body {
+		overflow: hidden;
+		_overflow: visible;
+		zoom: 1;
+	}

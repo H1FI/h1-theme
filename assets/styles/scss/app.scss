@@ -3,13 +3,19 @@
 @import "../../bower_components/foundation/scss/normalize";
 @import "../../bower_components/foundation/scss/foundation";
 
-// Vendor
-//@import "vendor/normalize.scss"; // Normalize is included in Foundation.
-@import "vendor/wp";
+// Components
+// @import "components/flag";
+// @import "components/media";
 
 // Modules
 @import "modules/navigation";
 @import "modules/comments";
+
+// Site
+
+// Vendor
+//@import "vendor/normalize.scss"; // Normalize is also included in Foundation.
+@import "vendor/wp";
 
 // Shameful code
 @import "shame";
