@@ -112,12 +112,13 @@ function h1_scripts() {
 	 * Register styles.
 	 */
 	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css' );
-	wp_enqueue_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
+	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
 
 	/**
 	 * Enqueue styles.
 	 */
 	wp_enqueue_style( 'h1-stylesheet' );
+	wp_enqueue_style( 'h1-stylesheet-legacy' );
 
 	global $wp_styles;
 	$wp_styles->registered['h1-stylesheet-legacy']->add_data( 'conditional', 'lt IE 9' ); // Add legacy CSS for IE8 and below.
