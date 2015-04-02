@@ -112,7 +112,7 @@ function h1_scripts() {
 	 * Register styles.
 	 */
 	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css' );
-	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
+	wp_enqueue_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
 
 	/**
 	 * Enqueue styles.
