@@ -73,3 +73,20 @@
 .comment-content a {
 	word-wrap: break-word;
 }
+.comments-area {
+	label {
+		display: block;
+	}
+	input[type="text"],
+	input[type="email"],
+	input[type="url"]
+	{
+		padding: rem-calc(5);
+	}
+}
+.form-allowed-tags {
+	font-size: 0.8em;
+}
+.form-submit .submit {
+	@include button();
+}
