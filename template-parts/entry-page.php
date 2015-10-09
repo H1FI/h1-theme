@@ -1,9 +1,12 @@
 <?php
 /**
- * The template used for displaying page content in page.php
+ * Template part for displaying page content in page.php.
  *
- * @package H1 Theme
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package H1_Theme
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,13 +18,24 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'h1-theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'h1-theme' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'h1-theme' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php
+			edit_post_link(
+				sprintf(
+					/* translators: %s: Name of current post */
+					esc_html__( 'Edit %s', 'h1-theme' ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+

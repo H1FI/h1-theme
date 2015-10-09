@@ -1,7 +1,12 @@
 <?php
 /**
- * @package H1 Theme
+ * Template part for displaying single posts.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package H1_Theme
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,7 +22,7 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'h1-theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'h1-theme' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -27,3 +32,4 @@
 		<?php h1_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+

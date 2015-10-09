@@ -5,13 +5,6 @@
  * @package H1 Theme
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
-}
-
 if ( ! function_exists( 'h1_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -50,7 +43,7 @@ function h1_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'h1-theme' ),
+		'primary' => esc_html__( 'Primary Menu', 'h1-theme' ),
 	) );
 
 	/*
@@ -58,7 +51,11 @@ function h1_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
 	) );
 
 	/*
@@ -75,6 +72,18 @@ function h1_setup() {
 }
 endif; // h1_setup
 add_action( 'after_setup_theme', 'h1_setup' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function h1_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'h1_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'h1_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.

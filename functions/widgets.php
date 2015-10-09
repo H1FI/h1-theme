@@ -10,7 +10,7 @@
  */
 function h1_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'h1-theme' ),
+		'name'          => esc_html__( 'Sidebar', 'h1-theme' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
