@@ -91,6 +91,12 @@ add_action( 'after_setup_theme', 'h1_content_width', 0 );
 function h1_scripts() {
 
 	/**
+	 * Get the theme
+	 */
+	$theme = wp_get_theme();
+	$version = $theme->Version;
+
+	/**
 	 * Directories for scripts and styles.
 	 */
 	$css_dir = get_template_directory_uri() . '/assets/styles/css';
@@ -99,8 +105,8 @@ function h1_scripts() {
 	/**
 	 * Register scripts.
 	 */
-	wp_register_script( 'h1-js', $js_dir . '/min/built.min.js', array( 'jquery' ), null, true );
-	wp_register_script( 'h1-js-dev', $js_dir . '/dev/built.js', array( 'jquery' ), null, true );
+	wp_register_script( 'h1-js', $js_dir . '/min/built.min.js', array( 'jquery' ), $version, true );
+	wp_register_script( 'h1-js-dev', $js_dir . '/dev/built.js', array( 'jquery' ), $version, true );
 
 	/**
 	 * Enqueue scripts.
@@ -120,8 +126,8 @@ function h1_scripts() {
 	/**
 	 * Register styles.
 	 */
-	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css' );
-	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css' ); // No mediaqueries, px instead of rem
+	wp_register_style( 'h1-stylesheet', $css_dir . '/app.css', null, $version  );
+	wp_register_style( 'h1-stylesheet-legacy', $css_dir . '/app-no-mq.css', null, $version ); // No mediaqueries, px instead of rem
 
 	/**
 	 * Enqueue styles.

@@ -7,3 +7,4 @@ default:
     - 'autoprefixer'
     - 'pixrem'
     - 'legacssy'
+    - 'bump_wp_version'
